@@ -1,9 +1,15 @@
 import React from "react";
 
-function Filter({ onCategoryChange }) {
+function Filter({ onCategoryChange, search, onSearchChange }) {
   return (
     <div className="Filter">
-      <input type="text" name="search" placeholder="Search..." />
+      <input
+        type="text"
+        name="search"
+        placeholder="Search..."
+        value={search} // Set the value of the input to the search prop
+        onChange={(e) => onSearchChange(e.target.value)} // Call the callback when input changes
+      />
       <select name="filter" onChange={onCategoryChange}>
         <option value="All">Filter by category</option>
         <option value="Produce">Produce</option>
@@ -15,3 +21,5 @@ function Filter({ onCategoryChange }) {
 }
 
 export default Filter;
+
+
